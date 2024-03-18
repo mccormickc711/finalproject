@@ -12,9 +12,8 @@ User-Friendly Output: Enhanced output formatting for a better understanding of t
 Getting Started
 To play the game, you'll need Python installed on your computer. Clone or download this repository to your local machine, navigate to the project directory, and run the Blackjack_Mccormick.py script in your terminal or command prompt:
 
-bash
-Download
-Copy code
+python Blackjack_Mccormick.py
+
 Follow the on-screen prompts to set your betting balance, place your bets, and make your moves against the dealer.
 
 How to Play
