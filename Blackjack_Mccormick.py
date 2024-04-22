@@ -40,20 +40,48 @@ def hand_value(hand):
     return value
 
 def play_blackjack():
-    deck = create_deck()
+
 
     print("Welcome to Blackjack")
     time.sleep(2)
     print("")
-    balance = float(input("Enter your starting balance: "))
+    bank = float(input("How much is in your bank account?: "))
+    time.sleep(2)
+    print("")
+    balance = float(input("How much are your bringing to the casino?: "))
     time.sleep(2)
     print("")
     while True:
-
+        deck = create_deck()
         # Step 4: Check if the player has enough balance to continue
         if balance <= 0:
-            print("You're out of money! Game over.")
-            break
+            if bank > 4:
+                choice = input("You're out of money!. Are you going to the ATM?")
+                if choice.lower() == "yes":
+                    done = 0
+                    print("")
+                    print("There is a 4$ fee")
+                    print("")
+
+                    while done == 0:
+                        print(f"Your balance is {bank}$")
+                        withdraw = float(input("How much are withdrawing:"))
+                        if withdraw == 0:
+                            break
+                        if (withdraw + 4) > bank:
+                            print("Insufficient funds")
+                        else:
+                            done = 1
+                            balance += withdraw
+                            bank -= withdraw + 4
+
+                else:
+                    print("Game over")
+                    break
+            else:
+                print("You have lost all your money, its over.")
+                break
+
 
         # Step 2: Ask for the player's bet amount
         bet = float(input("Enter your bet for this hand: "))
@@ -128,7 +156,7 @@ def play_blackjack():
 
         player_value = hand_value(player_hand)
         dealer_value = hand_value(dealer_hand)
-        time.sleep(3)
+        time.sleep(1)
         print("")
         print("Final hands:")
         time.sleep(1)
